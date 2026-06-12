@@ -1,6 +1,15 @@
 import { StateManager } from '../core/state-manager.js';
 import { Workflow } from '../core/state.js';
 
+const ALLOWED_FIELDS = new Set([
+  'workflow', 'phase', 'context_compression', 'build_mode', 'build_pause',
+  'subagent_dispatch', 'tdd_mode', 'isolation', 'refine_mode', 'auto_transition',
+  'base_ref', 'blueprint_doc', 'plan', 'refine_result', 'verification_report',
+  'branch_status', 'created_at', 'verified_at', 'archived',
+  'change_id', 'openspec_version', 'direct_override',
+  'build_command', 'verify_command', 'handoff_context', 'handoff_hash',
+]);
+
 export async function stateCommand(args: string[]): Promise<void> {
   const [subcommand, changeName, ...rest] = args;
   const manager = new StateManager();
@@ -15,12 +24,18 @@ export async function stateCommand(args: string[]): Promise<void> {
       }
       case 'get': {
         const field = rest[0];
+        if (!ALLOWED_FIELDS.has(field)) {
+          throw new Error(`Unknown field "${field}". Allowed: ${[...ALLOWED_FIELDS].join(', ')}`);
+        }
         const state = await manager.loadState(changeName) as any;
         console.log(state[field] ?? '');
         break;
       }
       case 'set': {
         const [field, value] = rest;
+        if (!ALLOWED_FIELDS.has(field)) {
+          throw new Error(`Unknown field "${field}". Allowed: ${[...ALLOWED_FIELDS].join(', ')}`);
+        }
         const state = await manager.loadState(changeName) as any;
         state[field] = value === 'null' ? null : (value === 'true' ? true : (value === 'false' ? false : value));
         await manager.saveState(changeName, state);
