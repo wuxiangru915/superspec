@@ -1,0 +1,56 @@
+{
+  "name": "@rpamis/superspec",
+  "version": "1.0.0",
+  "description": "Superspec Autonomous Engine — OpenSpec + Superpowers unified workflow",
+  "type": "module",
+  "bin": {
+    "superspec": "./bin/superspec.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "assets",
+    "scripts/postinstall.js"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/**/*.test.js",
+    "test:build": "tsc && npm test",
+    "postinstall": "node scripts/postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rpamis/superspec.git"
+  },
+  "homepage": "https://github.com/rpamis/superspec#readme",
+  "bugs": {
+    "url": "https://github.com/rpamis/superspec/issues"
+  },
+  "keywords": [
+    "ai",
+    "coding-agent",
+    "workflow",
+    "openspec",
+    "superpowers",
+    "specification",
+    "tdd",
+    "code-review",
+    "autonomous-development"
+  ],
+  "author": "rpamis",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fission-ai/openspec": "^1.4.1",
+    "@inquirer/prompts": "^8.4.3",
+    "commander": "^14.0.0",
+    "js-yaml": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.2.0",
+    "typescript": "^5.9.3"
+  }
+}

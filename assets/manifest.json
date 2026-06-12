@@ -1,0 +1,46 @@
+{
+  "version": "0.3.7",
+  "skills": [
+    "superspec/SKILL.md",
+    "superspec/reference/dirty-worktree.md",
+    "superspec/scripts/superspec-env.sh",
+    "superspec/scripts/superspec-guard.sh",
+    "superspec/scripts/superspec-state.sh",
+    "superspec/scripts/superspec-handoff.sh",
+    "superspec/scripts/superspec-Deliver.sh",
+    "superspec/scripts/superspec-yaml-validate.sh",
+    "superspec/scripts/superspec-hook-guard.sh",
+    "superspec-Vision/SKILL.md",
+    "superspec-Blueprint/SKILL.md",
+    "superspec-Forge/SKILL.md",
+    "superspec-Refine/SKILL.md",
+    "superspec-Deliver/SKILL.md",
+    "superspec-hotfix/SKILL.md",
+    "superspec-tweak/SKILL.md",
+    "embedded/openspec/Deliver-change.md",
+    "embedded/openspec/explore.md",
+    "embedded/openspec/new-change.md",
+    "embedded/openspec/propose.md",
+    "embedded/openspec/sync-specs.md",
+    "embedded/openspec/Refine-change.md",
+    "embedded/superpowers/brainstorming.md",
+    "embedded/superpowers/executing-plans.md",
+    "embedded/superpowers/finishing-a-development-branch.md",
+    "embedded/superpowers/receiving-code-review.md",
+    "embedded/superpowers/requesting-code-review.md",
+    "embedded/superpowers/subagent-driven-development.md",
+    "embedded/superpowers/systematic-debugging.md",
+    "embedded/superpowers/test-driven-development.md",
+    "embedded/superpowers/using-git-worktrees.md",
+    "embedded/superpowers/writing-plans.md"
+  ],
+  "rules": [
+    "superspec/rules/superspec-phase-guard.md"
+  ],
+  "hooks": {
+    "superspec/scripts/superspec-hook-guard.sh": {
+      "matcher": "Write|Edit",
+      "description": "Block code writes in wrong Superspec phase (Vision/Blueprint/Deliver)"
+    }
+  }
+}
