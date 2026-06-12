@@ -302,6 +302,7 @@ export async function igniteCommand(targetPath: string, options: InitOptions = {
         baseDir,
         platform,
         cmAction === 'overwrite',
+        'skills',
         scope,
       );
       cmStatus = copied > 0 ? 'installed' : 'skipped';

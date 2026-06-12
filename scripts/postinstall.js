@@ -35,7 +35,7 @@ async function main() {
   try {
     if (shouldSkip()) return;
     if (!(await distExists())) return;
-    console.log(`\nTip: Run 'superspec init' to set up superspec workflow in your project`);
+    console.log(`\nTip: Run 'superspec ignite' to set up superspec workflow in your project`);
   } catch {
     // Never break npm install
   }
